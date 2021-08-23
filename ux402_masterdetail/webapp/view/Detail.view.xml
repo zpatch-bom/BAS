@@ -1,0 +1,39 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.m.semantic" controllerName="student19.com.sap.training.ux402.masterdetail.ux402masterdetail.controller.Detail" displayBlock="true">
+
+    <semantic:DetailPage title="Semantic Page" id="page0" 
+        navButtonPress="onNavBack"
+        showNavButton="{device>/system/phone}">
+        <semantic:content>
+            <ObjectHeader 
+                title="{AirLineName}" 
+                intro="{AirLineID}">
+                <attributes>
+                    <ObjectAttribute text="{URL}"></ObjectAttribute>
+                </attributes>
+            </ObjectHeader>
+            <IconTabBar class="sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter icon="sap-icon://flight">
+                        <content>
+                            <Table headerText="Header Text" items="{CarrierFlights}" noDataText="No Data">
+                                <columns>
+                                    <Column>
+                                        <Text text="ID Col"></Text>
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem >
+                                        <cells>
+                                            <Text text="{AirLineID}"></Text>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </content>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </semantic:content>
+    </semantic:DetailPage>
+
+</mvc:View>

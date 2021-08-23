@@ -1,0 +1,24 @@
+<mvc:View controllerName="student19.com.sap.training.ux402.fullscreen.ux402fullscreen.controller.Carrier" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+    <Page title="{i18n>overviewPageTitle}">
+        <content>
+            <Table items="{/CarrierCollection}">
+                <columns>
+                    <Column>
+                            <Text text="{i18n>columnId}"/>
+                    </Column>
+                    <Column>
+                            <Text text="{i18n>columnName}" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem press="onPress" type="Navigation">
+                        <cells>
+                            <ObjectIdentifier title="{AirLineID}"/>
+                            <Text text="{AirLineName}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

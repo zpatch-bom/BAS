@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../../sap/zcds_ux403_objp_19_cds/$metadata">
+        <edmx:Include Namespace="ZCDS_UX403_OBJP_19_CDS" Alias="SAP"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="zcds_ux403_objp_19_cds_van.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.SEPM_I_BusinessPartnerType/EmailAddress">
+                <Annotation Term="Communication.IsEmailAddress"/>
+            </Annotations>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.SEPM_I_BusinessPartnerType/FaxNumber">
+                <Annotation Term="Communication.IsPhoneNumber"/>
+            </Annotations>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.SEPM_I_BusinessPartnerType/PhoneNumber">
+                <Annotation Term="Communication.IsPhoneNumber"/>
+            </Annotations>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.SEPM_I_BusinessPartnerType">
+                <Annotation Term="Communication.Contact">
+                    <Record>
+                        <PropertyValue Property="tel">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="type" EnumMember="Communication.PhoneType/fax"/>
+                                    <PropertyValue Property="uri" Path="FaxNumber"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="type" EnumMember="Communication.PhoneType/preferred"/>
+                                    <PropertyValue Property="uri" Path="PhoneNumber"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="email">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="address" Path="EmailAddress"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.SEPM_I_EmployeeType/EmailAddress">
+                <Annotation Term="Communication.IsEmailAddress"/>
+            </Annotations>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.SEPM_I_EmployeeType/ID">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.SEPM_I_EmployeeType/PhoneNumber">
+                <Annotation Term="Communication.IsPhoneNumber"/>
+            </Annotations>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.SEPM_I_EmployeeType">
+                <Annotation Term="Communication.Contact">
+                    <Record>
+                        <PropertyValue Property="n">
+                            <Record>
+                                <PropertyValue Property="given" Path="FirstName"/>
+                                <PropertyValue Property="additional" Path="MiddleName"/>
+                                <PropertyValue Property="surname" Path="LastName"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="tel">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="type" EnumMember="Communication.PhoneType/preferred"/>
+                                    <PropertyValue Property="uri" Path="PhoneNumber"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="email">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="address" Path="EmailAddress"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.SEPM_I_ProductType/ID">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.ZCDS_UX403_OBJP_19Type/SalesOrderUUID">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.ZCDS_UX403_OBJP_19Type/url">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.ZCDS_UX403_OBJP_19Type/OverallStatus">
+                <Annotation Term="Common.Text" Path="to_OverallStatus/SalesOrderOverallStatus_Text">
+                    <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextLast"/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.ZCDS_UX403_OBJP_19Type/DeliveryStatus"/>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.ZCDS_UX403_OBJP_19Type">
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="Collection"/>
+                            <PropertyValue Property="ID" String="COLL1"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="General Info"/>
+                                        <PropertyValue Property="ID" String="GE1"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Amount"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#BAMT"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Status"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#BSTAT"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Items"/>
+                            <PropertyValue Property="Target" AnnotationPath="to_Items/@UI.LineItem"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Amount"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#AMT"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Status"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#STAT"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="AMT">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="GrossAmount"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="NetAmount"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="BAMT">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="NetAmount"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="BSTAT">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="OverallStatus"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="STAT">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="OverallStatus"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="DeliveryStatus"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="UX403 Basic Object Page"/>
+                        <PropertyValue Property="TypeNamePlural" String="Sales Orders"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="SalesOrderID"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrderID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomerID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomerName"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossAmount"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="NetAmount"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="OverallStatus"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrderID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomerID"/>
+                        </Record>
+                        <Record Type="UI.DataFieldWithUrl">
+                            <PropertyValue Property="Value" Path="CustomerName"/>
+                            <PropertyValue Property="Url" Path="url"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossAmount"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Currency"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>CustomerID</PropertyPath>
+                        <PropertyPath>Currency</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.ZCDS_UX403_OBJP_ITEM_19Type/SalesOrderUUID">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.ZCDS_UX403_OBJP_ITEM_19Type/ProductUUID">
+                <Annotation Term="UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="ZCDS_UX403_OBJP_19_CDS.ZCDS_UX403_OBJP_ITEM_19Type">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrderItem"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossAmountInTransacCurrency"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="NetAmountInTransactionCurrency"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

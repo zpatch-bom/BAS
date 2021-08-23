@@ -1,0 +1,155 @@
+{
+    "_version": "1.32.0",
+    "sap.app": {
+        "id": "ovp.student19",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "tags": {
+            "keywords": []
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZCDS_UX403_OVP_19_CDS/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "ZCDS_UX403_OVP_19_CDS_VAN",
+                        "annotation"
+                    ],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZCDS_UX403_OVP_19_CDS_VAN": {
+                "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZCDS_UX403_OVP_19_CDS_VAN',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/ZCDS_UX403_OVP_19_CDS_VAN.xml"
+                }
+            },
+            "annotation": {
+                "type": "ODataAnnotation",
+                "uri": "annotations/annotation.xml",
+                "settings": {
+                    "localUri": "annotations/annotation.xml"
+                }
+            }
+        },
+        "offline": false,
+        "sourceTemplate": {
+            "id": "OVP.smartovptemplate",
+            "version": "1.41.1"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_belize"
+        ]
+    },
+    "sap.ui5": {
+        "resources": {
+            "js": [],
+            "css": []
+        },
+        "dependencies": {
+            "minUI5Version": "1.65.0",
+            "libs": {
+                "sap.ovp": {}
+            },
+            "components": {}
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties",
+                "preload": false
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "mainService": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "defaultCountMode": "Inline"
+                }
+            }
+        },
+        "extends": {
+            "extensions": {}
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        }
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "analytical"
+    },
+    "sap.ovp": {
+        "globalFilterModel": "mainService",
+        "globalFilterEntityType": "ZCDS_UX403_OVP_19Type",
+        "containerLayout": "resizable",
+        "enableLiveFilter": true,
+        "considerAnalyticalParameters": false,
+        "cards": {
+            "card00": {
+                "model": "mainService",
+                "template": "sap.ovp.cards.table",
+                "settings": {
+                    "title": "{{c00_t}}",
+                    "entitySet": "ZCDS_UX403_OVP_19",
+                    "tabs": [
+                        {}
+                    ]
+                }
+            },
+            "card01": {
+                "model": "mainService",
+                "template": "sap.ovp.cards.charts.analytical",
+                "chartType": "cardchartsdonut",
+                "settings": {
+                    "title": "{{c01_t}}",
+                    "entitySet": "ZCDS_UX403_OVP_19",
+                    "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Indentification",
+                    "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#CHDON"
+                }
+            },
+            "card02": {
+                "model": "mainService",
+                "template": "sap.ovp.cards.stack",
+                "settings": {
+                    "title": "{{c02_t}}",
+                    "subTitle": "{{c02_st}}",
+                    "entitySet": "ZCDS_UX403_OVP_19",
+                    "annotationPath": "com.sap.vocabularies.UI.v1.FieldGroup#DET"
+                }
+            }
+        }
+    },
+    "sap.ui.generic.app": {
+        "settings": {}
+    }
+}

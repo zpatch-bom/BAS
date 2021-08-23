@@ -1,0 +1,19 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="student19.sap.training.startnav.controller.Main" displayBlock="true">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+					    <sap.ui.layout:VerticalLayout xmlns:sap.ui.layout="sap.ui.layout" width="100%" id="layout0">
+					        <sap.ui.layout:content>
+					            <Link xmlns="sap.m" text="App Link" id="idNavLink"/>
+					            <TextArea xmlns="sap.m" value="Lorem ipsum dolor" rows="4" id="idTextIn"/>
+					            <Button xmlns="sap.m" text="App event Handler" press="onPress"/>
+					        </sap.ui.layout:content>
+					    </sap.ui.layout:VerticalLayout>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

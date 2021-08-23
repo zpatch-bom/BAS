@@ -1,0 +1,17 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="student19.sap.training.endnav.controller.Main" displayBlock="true">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+					    <sap.ui.layout:VerticalLayout width="100%" xmlns:sap.ui.layout="sap.ui.layout" id="layout0">
+					        <sap.ui.layout:content>
+					            <Text xmlns="sap.m" text="Hello" id="idInfo"/>
+					        </sap.ui.layout:content>
+					    </sap.ui.layout:VerticalLayout>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

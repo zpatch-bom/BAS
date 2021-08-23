@@ -1,0 +1,41 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZCDS_UX403_OVP_19_CDS/$metadata">
+        <edmx:Include Namespace="ZCDS_UX403_OVP_19_CDS" Alias="SAP"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="SAP.ZCDS_UX403_OVP_19Type">
+                <Annotation Term="UI.DataPoint" Qualifier="DET">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Value" Path="SalesOrder"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Chart" Qualifier="CHDON">
+                    <Record>
+                        <PropertyValue Property="Title" String="Sales by Customer"/>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="GrossAmount"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+                        <PropertyValue Property="Description" String="REPLACE_WITH_CHART_DESC"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
